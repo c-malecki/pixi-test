@@ -1,9 +1,9 @@
-import { Container, FederatedPointerEvent, Sprite } from "pixi.js";
+import { Container, Sprite } from "pixi.js";
 
 export class Scene extends Container {
   private readonly screenWidth: number;
   private readonly screenHeight: number;
-  public bunny: Sprite;
+  private bunny: Sprite;
 
   constructor(screenWidth: number, screenHeight: number) {
     super();
@@ -17,11 +17,6 @@ export class Scene extends Container {
     this.bunny.y = this.screenHeight / 2;
 
     this.addChild(this.bunny);
-    this.bunny.on("pointertap", this.onClick, this);
     this.bunny.eventMode = "dynamic";
-  }
-
-  private onClick(e: FederatedPointerEvent): void {
-    console.log("event data", e);
   }
 }

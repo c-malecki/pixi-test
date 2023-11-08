@@ -1,5 +1,6 @@
 import { Application } from "pixi.js";
 import { Scene } from "./scenes/Scene";
+import { Keyboard } from "./util/Keyboard";
 
 const app = new Application<HTMLCanvasElement>({
   view: document.getElementById("pixi-canvas") as HTMLCanvasElement,
@@ -13,6 +14,7 @@ globalThis.__PIXI_APP__ = app;
 
 const scene: Scene = new Scene(app.screen.width, app.screen.height);
 document.body.appendChild(app.view);
+Keyboard.initialize();
 app.stage.addChild(scene);
 
 // app.ticker.add((delta) => {
